@@ -12,4 +12,7 @@ For this project the goal is the rough guidelines to follow are:
   - Looking at top streamed artists of a user
   - Generating an amount of related artists based on these top streamed artists
   - Create a playlist with top songs of generated artists
+
+[Contribution](CONTRIBUTION.md)  
+[Code of Conduct](code_of_conduct.md)  
   
