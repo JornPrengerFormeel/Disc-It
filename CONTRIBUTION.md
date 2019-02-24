@@ -12,4 +12,3 @@ tutorials and documentation:
 * Spotify API: https://developer.spotify.com/documentation/web-api/  
 * React.js: https://reactjs.org/  
 * JavaScript: https://javascript.info/
-

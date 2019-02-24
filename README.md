@@ -7,3 +7,4 @@ Create a playlist on spotify with a specified amount of songs, from a specified 
 * [Contribution](CONTRIBUTION.md)  
 * [Code of Conduct](code_of_conduct.md)  
 * [Goals](GOALS.md)  
+
