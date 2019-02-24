@@ -6,7 +6,7 @@ Create a playlist on spotify with a specified amount of songs, from a specified 
 
 ### Rules
 We will be using the CodingTrain Code-of-Conduct(https://github.com/CodingTrain/Code-of-Conduct)
-If anybody harrases someone or breaks the code of conduct you can send an (anonymous) email to jorn.prenger@gmail.com (yup, that's me) and the person will be banned from working on the project.
+If anybody harrases someone or breaks the code of conduct you can send an (anonymous) email to me @ jorn.prenger@gmail.com and the person will be banned from working on the project.
 
 ### Guidelines
 For this project the goal is the rough guidelines to follow are:
