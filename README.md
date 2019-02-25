@@ -6,6 +6,6 @@ Create a playlist on spotify with a specified amount of songs, from a specified 
 <img src="androidapp.png" alt="drawing" height="500"/>
 
 
-* [Contribution](CONTRIBUTION.md)  
+* [Contribution](github/contrib.md)  
 * [Code of Conduct](code_of_conduct.md)  
 * [Goals](GOALS.md)  
