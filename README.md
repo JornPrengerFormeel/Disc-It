@@ -8,5 +8,5 @@ Create a playlist on spotify with a specified amount of songs, from a specified 
 * [Code of Conduct](docs/CODE_OF_CONDUCT.md)  
 * [Goals](docs/GOALS.md)  
 
-<img src="assets/androidapp.png" alt="drawing" height="250"/>  
+<img src="assets/androidapp.png" alt="drawing" height="250"/>
 <img src="assets/webapp.png" alt="drawing" height="250"/>  
