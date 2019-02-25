@@ -1,14 +1,15 @@
 # Contribution
-Want to contribute to the project?
-Heres what you have to do first.
+Want to contribute to the project? Please make a pull request that obeys the general format. If your PR format does not match the general format, we will not bother looking at it.
 
-### prerequisites
-We are using Javascript, html and css.  
-Used libraries for Javascript are:
-- React.js  
-- Node.js  
+### Setup
+To get ready to work on the codebase, please do the following:
 
-tutorials and documentation:
-* Spotify API: https://developer.spotify.com/documentation/web-api/  
-* React.js: https://reactjs.org/  
-* JavaScript: https://javascript.info/
+1. Fork & Clone the repository's **master** branch.
+2. Yadda yadda
+3. Submit a pull request
+
+### General Format
+
+Type: [PATCH/IMPROV]
+Description: [Min. 10 words describing the PR]
+Author: [Your handle]
