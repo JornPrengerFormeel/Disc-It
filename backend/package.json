@@ -1,0 +1,18 @@
+{
+  "name": "disc-it-backend",
+  "version": "0.0.1",
+  "description": "The Backend API for the DISC-IT application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  }
+}
