@@ -18,7 +18,6 @@ class GreetingPage extends React.Component {
     return (
       <div className="container">
         <div className="background-container">
-        <div className="background-overlay"></div>
         <div className="background-image"></div>
         </div>
         <div className="center-disc">
