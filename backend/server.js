@@ -8,16 +8,13 @@ app.use( cors({credentials: true, origin: true}) );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 // Register the fallback error message
 app.use(function(req, res) {
   res.status(404).send( {message: req.originalUrl + ' not found'} )
 });
 
-
 // Register the different routes
 require('./server/routes')(app);
-
 
 // Start the server
 app.listen(port);
