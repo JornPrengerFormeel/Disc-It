@@ -9,7 +9,7 @@
 }
 
 .background-image {
-  background: url(../img/albums.jpg);
+  background: url(../img/albums.jpg) repeat-y;
   width: 100%;
   height: 300vh;
   background-size: contain;
