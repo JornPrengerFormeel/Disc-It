@@ -3,12 +3,12 @@ A music discovery tool for spotify.
 
 ### Expected Behavior
 Create a playlist on spotify with a specified amount of songs, from a specified amount of artists, related to a specified amount of artists.  
-<img src="androidapp.png" alt="drawing" width="200"/>  
-<img src="assets/webapp.png" alt="drawing" height="250"/>
+<img src="docs/assets/androidapp.png" alt="drawing" width="200"/>  
+<img src="docs/assets/webapp.png" alt="drawing" height="250"/>
 
-* [Contribution](CONTRIBUTION.md)  
-* [Code of Conduct](code_of_conduct.md)  
-* [Goals](GOALS.md)  
+* [Contribution](docs/CONTRIBUTION.md)  
+* [Code of Conduct](docs/code_of_conduct.md)  
+* [Goals](docs/GOALS.md)  
 
 
 
