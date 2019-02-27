@@ -5,20 +5,50 @@ import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
 
 class GreetingPage extends React.Component {
+
+    state = {
+        mouse : {
+            offsetX : 0,
+            offsetY : 0
+        }
+    }
+
+   
+    mouseMove = (e) => {
+        let mouse = this.state.mouse;
+        mouse = {
+            offsetX : e.nativeEvent.offsetX,
+            offsetY : e.nativeEvent.offsetY
+        } 
+        
+        this.setState({
+            mouse : mouse
+        })
+    }
+
+    getBackgroundStyle() {
+        return {
+            backgroundPositionX : `${(-this.state.mouse.offsetX / 3) + 200}px`,
+            backgroundPositionY : `${-this.state.mouse.offsetY}px`,
+        }
+    }
+
     render() {
         return (
             <Container>
                 <BackgroundContainer>
-                    <BackgroundImage src={backgroundImage} />
+                    <BackgroundImage 
+                        onMouseMove = {this.mouseMove}
+                        src={backgroundImage}
+                        style = {this.getBackgroundStyle()}
+                    />
                 </BackgroundContainer>
                 <CenterDisc>
                     <ContentContainer>
                         <p>
                             <b>Spot It</b>
                             {' '}
-creates playlists based on artists you already love.
-
-
+                            creates playlists based on artists you already love.
                         </p>
                         <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
                         <LinkSpotify />
@@ -34,29 +64,22 @@ const Container = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
 `;
 
 const BackgroundContainer = styled.div`
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 `;
 
 
-const slide = keyframes`
-  0%{
-    transform: translate3d(0, 0, 0);
-  }
-  100%{
-    transform: translate3d(0, -300vh, 0);
-  }
-`;
 const BackgroundImage = styled.div`
   background: url(${props => props.src}) repeat-y; 
-  height: 300vh;
-  background-size: contain;
-  animation: ${slide} 120s linear infinite;
+  height:150vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat:repeat;
+  
 `;
 
 const CenterDisc = styled.div`
