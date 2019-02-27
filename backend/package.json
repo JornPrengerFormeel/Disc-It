@@ -2,7 +2,7 @@
   "name": "disc-it-backend",
   "version": "0.0.1",
   "description": "The Backend API for the DISC-IT application",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
