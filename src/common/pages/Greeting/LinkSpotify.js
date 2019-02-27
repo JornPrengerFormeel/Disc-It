@@ -1,16 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-class LinkSpotify extends React.Component {
-    render() {
-      return (
-        <LinkSpotifyBtn>
-          Link Spotify
-          {/* TODO */}
-        </LinkSpotifyBtn>
-      );
-    }
-}
+const LinkSpotify = props => (
+    <LinkSpotifyBtn>
+        Link Spotify
+        {/* TODO */}
+    </LinkSpotifyBtn>
+);
 
 const LinkSpotifyBtn = styled.button`
   width: 100%;

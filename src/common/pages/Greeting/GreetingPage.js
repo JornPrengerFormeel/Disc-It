@@ -1,27 +1,33 @@
-import React from "react";
-import styled, {keyframes} from 'styled-components';
-//TODO: Add font used in UI desgin
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+// TODO: Add font used in UI desgin
 import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
 
 class GreetingPage extends React.Component {
-  render() {
-    return (
-      <Container>
-        <BackgroundContainer>
-          <BackgroundImage src={backgroundImage}/>
-        </BackgroundContainer>
-        <CenterDisc>
-          <ContentContainer>
-            <p><b>Spot It</b> creates playlists based on artists you already love.</p>
-            <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
-            <LinkSpotify />
-          </ContentContainer>
+    render() {
+        return (
+            <Container>
+                <BackgroundContainer>
+                    <BackgroundImage src={backgroundImage} />
+                </BackgroundContainer>
+                <CenterDisc>
+                    <ContentContainer>
+                        <p>
+                            <b>Spot It</b>
+                            {' '}
+creates playlists based on artists you already love.
 
-        </CenterDisc>
-      </Container>
-    );
-  }
+
+                        </p>
+                        <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+                        <LinkSpotify />
+                    </ContentContainer>
+
+                </CenterDisc>
+            </Container>
+        );
+    }
 }
 
 const Container = styled.div`
@@ -36,7 +42,6 @@ const BackgroundContainer = styled.div`
   height: 100vh;
   overflow: hidden;
 `;
-
 
 
 const slide = keyframes`
@@ -78,7 +83,6 @@ const ContentContainer = styled.div`
     margin-bottom: 5px;
   }
 `;
-
 
 
 export default GreetingPage;
