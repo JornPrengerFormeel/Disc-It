@@ -1,12 +1,12 @@
-# Spot-It
-A music discovery tool for spotify.
+# Backend
 
-### Expected Behavior
-Create a playlist on spotify with a specified amount of songs, from a specified amount of artists, related to a specified amount of artists.  
+This is the Express RESTful API for Disc-It, used to connect to the frontend to the Spotify API.
 
-* [Contribution](docs/CONTRIBUTING.md)  
-* [Code of Conduct](docs/CODE_OF_CONDUCT.md)  
-* [Goals](docs/GOALS.md)  
+# Commands
 
-<img src="assets/androidapp.png" alt="drawing" height="250"/>
-<img src="assets/webapp.png" alt="drawing" height="250"/>  
+Type these into the terminal (at this folder):
+
+|  Command  |  Description  |   
+|---|---|
+| npm install | Install all of the required dependencies to your local repo |
+| npm start | starts the server on localhost:3000  |
