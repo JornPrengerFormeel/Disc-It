@@ -1,44 +1,71 @@
-#Organizational Structure
+<h1>Organizational Structure</h1>
 
-*Lead Developer (jmas)
-    *Project Management Team Lead (jmas, ceceliacreates)
-        *mightyMouse
-    *UI/UX Team Lead (TBD)
-        *datsJack
-        *akkipedia
-        *samalot
-        *hansum
-    *React/Front-End Team Lead (gpitot)
-        *zubair
-        *akkipedia
-        *ethan
-        *rice
-    *Node/Back-End Team Lead (samalot)
-        *isla
-        *ethan
-        *akkipedia
-        *gpitot
-        *zubair
-        *rice
-        *mightyMouse
-    *Testing/QA Team Lead (TBD)
-        *hanlak (suggested)
-        *FKBackPack (suggested)
-        *vezqui (suggested)
-    *Deployment Team Lead (TBD)
-        *TBD
-
-##To Be Assigned
-*shahan (indicated Front-End or Back-End on survey)
-
-##Needs to Complete Survey
-*vividcode
-*sokru
-*xy'n
-*neostarsky97
-*meatotommy
-*gibbo
-*gibbo3771 (duplicate?)
-*redblood72
-*auttaja
-
+<ul>
+<li>Lead Developer (jmas)</li>
+    <ul>
+    <li>Project Management Team Lead (jmas, ceceliacreates)</li>
+        <ul>
+            <li>mightyMouse</li>
+        </ul>
+    </ul>
+    <ul>
+    <li>UI/UX Team Lead (TBD)</li>
+        <ul>
+            <li>datsJACK</li>
+            <li>Akkipedia</li>
+            <li>Samalot</li>
+            <li>hansum</li>
+        </ul>
+    </ul>
+    <ul>
+    <li>React/Front-End Team Lead (gpitot)</li>
+        <ul>
+            <li>Zubair</li>
+            <li>Akkipedia</li>
+            <li>Ethan</li>
+            <li>rice</li>
+        </ul>
+    </ul>
+    <ul>
+    <li>Node/Back-End Team Lead (samalot)</li>
+        <ul>
+            <li>Isla</li>
+            <li>Ethan</li>
+            <li>Akkipedia</li>
+            <li>Gpitot</li>
+            <li>Zubair</li>
+            <li>Rice</li>
+            <li>mightyMouse</li>
+        </ul>
+    </ul>
+    <ul>
+    <li>Testing/QA Team Lead (TBD)</li>
+        <ul>
+            <li>Hanlak (suggested)</li>
+            <li>FKBackPack (suggested)</li>
+            <li>Vezqui (suggested)</li>
+        </ul>
+    </ul>
+    <ul>
+    <li>Deployment Team Lead (TBD)</li>
+        <ul>
+            <li>TBD</li>
+        </ul>
+    </ul>
+<li>To Be Assigned:</li>
+    <ul>
+        <li>Shahan (indicated Front-End or Back-End on survey)</li>
+    </ul>
+<li>Needs to Complete Survey:</li>
+    <ul>
+        <li>Vividcode</li>
+        <li>Sokru</li>
+        <li>Xy’n</li>
+        <li>Neostarksy97</li>
+        <li>Meatotommy</li>
+        <li>Gibbo</li>
+        <li>Gibbo3771 (duplicate?)</li>
+        <li>RedBlood72</li>
+        <li>Auttaja</li>
+    </ul>
+</ul>
