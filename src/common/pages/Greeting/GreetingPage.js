@@ -5,29 +5,31 @@ import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
 
 class GreetingPage extends React.Component {
-    render() {
-        return (
-            <Container>
-                <BackgroundContainer>
-                    <BackgroundImage src={backgroundImage} />
-                </BackgroundContainer>
-                <CenterDisc>
-                    <ContentContainer>
-                        <p>
-                            <b>Spot It</b>
-                            {' '}
-creates playlists based on artists you already love.
+  test = () => {console.log("hi");};
 
-
+  render() {
+    return (
+      <Container>
+        <BackgroundContainer>
+          <BackgroundImage src={backgroundImage} />
+        </BackgroundContainer>
+        <CenterDisc>
+          <ContentContainer>
+            <p>
+              <b>Spot It</b>
+              {' '}
+              creates playlists based on artists you already love.
+              
+              
                         </p>
-                        <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
-                        <LinkSpotify />
-                    </ContentContainer>
+            <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+            <LinkSpotify />
+          </ContentContainer>
 
-                </CenterDisc>
-            </Container>
-        );
-    }
+        </CenterDisc>
+      </Container>
+    );
+  }
 }
 
 const Container = styled.div`

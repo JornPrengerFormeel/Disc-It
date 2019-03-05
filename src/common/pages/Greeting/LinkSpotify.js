@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GreetingPagePresenter } from "./GreetingPagePresenter";
 
 const LinkSpotify = props => (
-    <LinkSpotifyBtn>
+    <LinkSpotifyBtn onClick={GreetingPagePresenter.linkButtonClicked} >
         Link Spotify
         {/* TODO */}
     </LinkSpotifyBtn>
