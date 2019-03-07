@@ -1,33 +1,36 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+
 // TODO: Add font used in UI desgin
 import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
 
 class GreetingPage extends React.Component {
-    render() {
-        return (
-            <Container>
-                <BackgroundContainer>
-                    <BackgroundImage src={backgroundImage} />
-                </BackgroundContainer>
-                <CenterDisc>
-                    <ContentContainer>
-                        <p>
-                            <b>Spot It</b>
-                            {' '}
-creates playlists based on artists you already love.
+  test = () => { console.log('hi'); };
+
+  render() {
+      return (
+          <Container>
+              <BackgroundContainer>
+                  <BackgroundImage src={backgroundImage} />
+              </BackgroundContainer>
+              <CenterDisc>
+                  <ContentContainer>
+                      <p>
+                          <b>Spot It</b>
+                          {' '}
+              creates playlists based on artists you already love.
 
 
-                        </p>
-                        <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
-                        <LinkSpotify />
-                    </ContentContainer>
+                      </p>
+                      <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+                      <LinkSpotify />
+                  </ContentContainer>
 
-                </CenterDisc>
-            </Container>
-        );
-    }
+              </CenterDisc>
+          </Container>
+      );
+  }
 }
 
 const Container = styled.div`
@@ -53,7 +56,7 @@ const slide = keyframes`
   }
 `;
 const BackgroundImage = styled.div`
-  background: url(${props => props.src}) repeat-y; 
+  background: url(${props => props.src}) repeat-y;
   height: 300vh;
   background-size: contain;
   animation: ${slide} 120s linear infinite;

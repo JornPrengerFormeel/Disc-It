@@ -11,3 +11,8 @@ tutorials and documentation:
 * Spotify API: https://developer.spotify.com/documentation/web-api/  
 * React.js: https://reactjs.org/  
 * JavaScript: https://javascript.info/
+
+### Mock Up's
+A couple of mock up's have been made by the ui team:  
+<img src="assets/androidapp.png" alt="drawing" height="250"/>
+<img src="assets/webapp.png" alt="drawing" height="250"/>
