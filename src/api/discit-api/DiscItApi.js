@@ -1,16 +1,17 @@
-import { BaseRequest } from "../BaseRequest";
+import { BaseRequest } from '../BaseRequest';
+
 const BACKEND_PORT = 8888;
 
 export class DiscItApi {
-  static async sendLoginRequest() {
-    return BaseRequest.sendGetRequest(`http://localhost:${BACKEND_PORT}/user/login/`, {});
-  }
-
-
-  static async getTokens(code) {
-    const body = {
-      code : code,
+    static async sendLoginRequest() {
+        return BaseRequest.sendGetRequest(`http://localhost:${BACKEND_PORT}/user/login/`);
     }
-    return BaseRequest.sendPostRequest(`http://localhost:${BACKEND_PORT}/user/access/`, body);
-  }
+
+
+    static async getTokens(code) {
+        const body = {
+            code,
+        };
+        return BaseRequest.sendPostRequest(`http://localhost:${BACKEND_PORT}/user/access/`, body);
+    }
 }
