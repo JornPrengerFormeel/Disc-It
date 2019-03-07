@@ -5,30 +5,30 @@ import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
 
 class GreetingPage extends React.Component {
-  test = () => {console.log("hi");};
+  test = () => { console.log('hi'); };
 
   render() {
-    return (
-      <Container>
-        <BackgroundContainer>
-          <BackgroundImage src={backgroundImage} />
-        </BackgroundContainer>
-        <CenterDisc>
-          <ContentContainer>
-            <p>
-              <b>Spot It</b>
-              {' '}
+      return (
+          <Container>
+              <BackgroundContainer>
+                  <BackgroundImage src={backgroundImage} />
+              </BackgroundContainer>
+              <CenterDisc>
+                  <ContentContainer>
+                      <p>
+                          <b>Spot It</b>
+                          {' '}
               creates playlists based on artists you already love.
-              
-              
-                        </p>
-            <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
-            <LinkSpotify />
-          </ContentContainer>
 
-        </CenterDisc>
-      </Container>
-    );
+
+                      </p>
+                      <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+                      <LinkSpotify />
+                  </ContentContainer>
+
+              </CenterDisc>
+          </Container>
+      );
   }
 }
 

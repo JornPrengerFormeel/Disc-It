@@ -1,13 +1,11 @@
-import { DiscItApi } from "../../../api/discit-api/DiscItApi";
+import { DiscItApi } from '../../../api/discit-api/DiscItApi';
 
 export class GreetingPagePresenter {
-
-  static linkButtonClicked() {
-    DiscItApi.sendLoginRequest()
-    .then( (response) => {
-      window.location = response;
-    })
-    .catch(console.log);
-  }
-
+    static linkButtonClicked() {
+        DiscItApi.sendLoginRequest()
+            .then((response) => {
+                window.location = response;
+            })
+            .catch(console.log);
+    }
 }
