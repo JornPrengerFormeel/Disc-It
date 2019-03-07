@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+
 // TODO: Add font used in UI desgin
 import LinkSpotify from './LinkSpotify';
 import backgroundImage from '../../../img/album.jpg';
@@ -55,7 +56,7 @@ const slide = keyframes`
   }
 `;
 const BackgroundImage = styled.div`
-  background: url(${props => props.src}) repeat-y; 
+  background: url(${props => props.src}) repeat-y;
   height: 300vh;
   background-size: contain;
   animation: ${slide} 120s linear infinite;

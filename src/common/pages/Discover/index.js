@@ -20,40 +20,39 @@ class Discover extends Component {
         this.search = this.search.bind(this);
         this.getRecommended = this.getRecommended.bind(this);
     }
-    
-
-   
 
     handleChange =(e) => {
         this.setState({[e.target.name] : e.target.value})
     }
 
     async search() {
-        const artist = this.state.query;
+        const artist = this.state.query.trim();
         if (artist.length < 1) return;
         const results = await SpotifyApi.search(artist, 'artist', 10, 0);
         //const results = await data.json();
         if (results.artists) {
             this.setState({results : results.artists.items})
         }
-        
+
     }
 
     selectItem = (type, item) => {
         const selected = [...this.state.selected];
-        selected.push({
-            type : type, 
-            item : item
-        })
-        this.setState({
-            selected : selected
-        })
+        if (!selected.some( s => (s.type === type && s.item === item) )) {
+          selected.push({
+              type : type,
+              item : item
+          })
+          this.setState({
+              selected : selected
+          })
+        }
     }
 
     async getRecommended() {
         const selected = this.state.selected;
         const results = await SpotifyApi.recommendations(selected);
-        
+
         if (results.tracks) {
             this.setState({recommendations : results.tracks})
         }
@@ -67,18 +66,18 @@ class Discover extends Component {
             <Area>
                 <Go onClick={this.getRecommended}>Get Recommended</Go>
                 <Selected selected={this.state.selected} />
-                <Input 
+                <Input
                     value = {this.state.query}
                     name = "query"
                     onChange={this.handleChange}
                 />
                 <Go onClick={this.search}>Search</Go>
-                
-                <Results 
-                    results={this.state.results} 
+
+                <Results
+                    results={this.state.results}
                     selectItem = {this.selectItem}
                 />
-            
+
             </Area>
         )
     }
