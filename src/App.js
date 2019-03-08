@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Router from './Router';
@@ -8,29 +8,29 @@ import backgroundImage from './img/album.jpg';
 
 class App extends Component {
     state = {
-        mouse : {
-            offsetX : 0,
-            offsetY : 0
-        }
+        mouse: {
+            offsetX: 0,
+            offsetY: 0,
+        },
     }
 
     mouseMove = (e) => {
         let mouse = this.state.mouse;
         mouse = {
-            offsetX : e.nativeEvent.offsetX,
-            offsetY : e.nativeEvent.offsetY
-        } 
+            offsetX: e.nativeEvent.offsetX,
+            offsetY: e.nativeEvent.offsetY,
+        };
 
         this.setState({
-            mouse : mouse
-        })
+            mouse,
+        });
     }
 
     getBackgroundStyle() {
         return {
-            backgroundPositionX : `${(-this.state.mouse.offsetX)}px`,
-            backgroundPositionY : `${-this.state.mouse.offsetY}px`,
-        }
+            backgroundPositionX: `${(-this.state.mouse.offsetX)}px`,
+            backgroundPositionY: `${-this.state.mouse.offsetY}px`,
+        };
     }
 
 
@@ -39,22 +39,21 @@ class App extends Component {
             <React.Fragment>
                 <Container>
                     <BackgroundContainer>
-                        <BackgroundImage 
-                            onMouseMove = {this.mouseMove}
-                            src={backgroundImage}
-                            style = {this.getBackgroundStyle()}
+                        <BackgroundImage
+                          onMouseMove={this.mouseMove}
+                          src={backgroundImage}
+                          style={this.getBackgroundStyle()}
                         />
                     </BackgroundContainer>
                 </Container>
-                
+
                 <Router props={this.props} />
 
             </React.Fragment>
-    
-    
+
+
         );
     }
-    
 }
 
 
@@ -81,7 +80,6 @@ const BackgroundImage = styled.div`
   background-size: cover;
   background-repeat:repeat;
 `;
-
 
 
 export default App;

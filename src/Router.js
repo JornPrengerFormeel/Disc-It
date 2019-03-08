@@ -12,7 +12,7 @@ export default function Router(props) {
 
             <Route exact path="/" component={GreetinPage} />
             <Route path="/user/callback" component={LoginCallbackPage} />
-            <Route path = "/discover" component={Discover} />
+            <Route path="/discover" component={Discover} />
 
         </Switch>
     );
