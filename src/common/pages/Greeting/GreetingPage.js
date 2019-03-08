@@ -7,25 +7,19 @@ import LinkSpotify from './LinkSpotify';
 
 
 class GreetingPage extends React.Component {
-  
-    
-
     componentDidMount() {
-        //check current localstorage and see if tokens have expired, if not redirect to discover
+        // check current localstorage and see if tokens have expired, if not redirect to discover
         if (localStorage.getItem('access_token')) {
             const expiry = localStorage.getItem('expiry_epoch');
             if (expiry && expiry > new Date().getTime()) {
-                this.props.history.push('/discover')
+                this.props.history.push('/discover');
             }
         }
     }
 
 
-    
-
-
     render() {
-      return (
+        return (
             <CenterDisc>
                 <ContentContainer>
                     <p>
@@ -41,9 +35,8 @@ class GreetingPage extends React.Component {
 
             </CenterDisc>
         );
-    } 
+    }
 }
-
 
 
 const CenterDisc = styled.div`

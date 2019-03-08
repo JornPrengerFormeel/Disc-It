@@ -1,30 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import {SpotifyApi} from '../../../api/spotify-api'
+import { SpotifyApi } from '../../../api/spotify-api';
 
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            query : ''
-        }
+            query: '',
+        };
 
         this.search = this.search.bind(this);
     }
-   
-    
+
 
     handleChange = (e) => {
-        this.setState({[e.target.name] : e.target.value})
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     async search() {
         const artist = this.state.query.trim();
         if (artist.length < 1) return;
         const results = await SpotifyApi.search(artist, 'artist', 10, 0);
-        //const results = await data.json();
-        
+        // const results = await data.json();
+
         if (results.artists) {
             this.props.updateResults('searched', results.artists.items);
         }
@@ -32,9 +31,9 @@ class Search extends Component {
 
 
     checkUnique = (data) => {
-        //check id is unique
+        // check id is unique
         const seeds = this.props.seeds;
-        for (let i=0;i<seeds.length;i++) {
+        for (let i = 0; i < seeds.length; i++) {
             if (seeds[i].item.id === data.item.id) return false;
         }
         return true;
@@ -42,9 +41,9 @@ class Search extends Component {
 
     addItem =(item) => {
         const data = {
-            type : 'artist',
-            item : item
-        }
+            type: 'artist',
+            item,
+        };
         if (this.checkUnique(data)) {
             this.props.selectItem('seeds', data);
         }
@@ -54,35 +53,35 @@ class Search extends Component {
         return (
             <Area>
                 <Title>Search Artists</Title>
-                <Input 
-                    value={this.state.query}
-                    onChange={this.handleChange}
-                    name="query"
-                    placeholder="Search artists"
+                <Input
+                  value={this.state.query}
+                  onChange={this.handleChange}
+                  name="query"
+                  placeholder="Search artists"
                 />
                 <Go onClick={this.search}>Search</Go>
 
                 <Results>
                     {
-                        this.props.items.map((item)=>{
+                        this.props.items.map((item) => {
                             const img = item.images.length < 2 ? null : item.images[1].url;
                             return (
-                                <Item 
-                                    key={item.id}
-                                    onClick={()=>{this.addItem(item)}}
+                                <Item
+                                  key={item.id}
+                                  onClick={() => { this.addItem(item); }}
                                 >
                                     <ImageOuter>
                                         <Image src={img} />
                                     </ImageOuter>
                                     <Name>{item.name}</Name>
                                 </Item>
-                            )
+                            );
                         })
                     }
                 </Results>
 
             </Area>
-        )
+        );
     }
 }
 
@@ -168,9 +167,6 @@ const ImageOuter = styled.div`
     height:100%;
     overflow:hidden;
 `;
-
-
-
 
 
 export default Search;

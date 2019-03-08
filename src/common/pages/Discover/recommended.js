@@ -1,34 +1,33 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import {SpotifyApi} from '../../../api/spotify-api'
+import { SpotifyApi } from '../../../api/spotify-api';
 
 import sound from '../../../img/mute-unmute.png';
 
 class Recommended extends Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            recommendations : []
-        }
+            recommendations: [],
+        };
 
         this.getRecommended = this.getRecommended.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        //if seeds have changed then get recommendations
+        // if seeds have changed then get recommendations
         if (prevProps.items !== this.props.items) {
             this.getRecommended();
         }
     }
-    
+
     async getRecommended() {
         const items = this.props.items;
         console.log(items);
         if (items.length === 0) {
-            this.setState({recommendations : []})
+            this.setState({ recommendations: [] });
             return;
         }
 
@@ -37,7 +36,7 @@ class Recommended extends Component {
         const results = await SpotifyApi.recommendations(seeds);
         console.log(results);
         if (results.tracks) {
-            this.setState({recommendations : results.tracks})
+            this.setState({ recommendations: results.tracks });
         }
     }
 
@@ -51,11 +50,11 @@ class Recommended extends Component {
         audio.src = item.preview_url;
         audio.play();
     }
-    
+
 
     removeSeed =(index) => {
         const seeds = [...this.props.items];
-        seeds.splice(index,1);
+        seeds.splice(index, 1);
         this.props.updateResults('seeds', seeds);
     }
 
@@ -65,69 +64,70 @@ class Recommended extends Component {
         const last5 = items.slice(start);
         return (
             <Area>
-                <Audio id = "audio"></Audio>
+                <Audio id="audio" />
                 <Title>
                     Seeds
                 </Title>
                 <Results>
                     {
-                        
-                        last5.map((data, index)=>{
+
+                        last5.map((data, index) => {
                             const item = data.item;
                             const img = item.images.length < 2 ? null : item.images[1].url;
                             return (
-                                <Item 
-                                    key={item.id}
+                                <Item
+                                  key={item.id}
                                 >
                                     <ImageOuter>
                                         <Image src={img} />
                                     </ImageOuter>
                                     <Name>{item.name}</Name>
 
-                                    <Remove onClick={()=>{this.removeSeed(index)}}>X</Remove>
+                                    <Remove onClick={() => { this.removeSeed(index); }}>X</Remove>
                                 </Item>
-                            )
+                            );
                         })
                     }
                 </Results>
-                
+
 
                 {
-                    this.state.recommendations.length > 0 &&
-                    <Title>Recommended Tracks</Title>   
+                    this.state.recommendations.length > 0
+                    && <Title>Recommended Tracks</Title>
                 }
-                 
 
-                
+
                 <Results>
                     {
-                        this.state.recommendations.map((item, index)=>{
+                        this.state.recommendations.map((item, index) => {
                             const artist = item.artists.length > 0 ? item.artists[0].name : null;
                             return (
-                                <RecommendedItem 
-                                    key={item.id}
-                                    touched = {item.touched}
+                                <RecommendedItem
+                                  key={item.id}
+                                  touched={item.touched}
                                 >
                                     <SongName>{item.name}</SongName>
-                                    
+
                                     {artist && <Artist>{artist}</Artist>}
 
                                     {
-                                        item.preview_url &&
-                                        <Demo
-                                            onClick={()=>{this.playDemo(item)}}
-                                        />
+                                        item.preview_url
+                                        && (
+                                            <Demo
+                                              onClick={() => { this.playDemo(item); }}
+                                            />
+                                        )
                                     }
-                                    <Plus onClick={()=>{this.addSong(item)}}>+</Plus>
-                                    
+                                    <Plus onClick={() => { this.addSong(item); }}>+</Plus>
+
                                 </RecommendedItem>
-                            )
+                            );
                         })
                     }
                 </Results>
 
             </Area>
-        )
+        );
     }
 }
 const Audio = styled.audio`display:none;`;
@@ -147,7 +147,7 @@ const Title = styled.h1`
    
     padding:25px;
     border-bottom:dashed 6px black;
-`
+`;
 
 const Name = styled.div`
     position:absolute;
@@ -188,19 +188,11 @@ const ImageOuter = styled.div`
 `;
 
 
-
-
-
-
-
-
 const Results = styled.div`
     display:flex;
     flex-flow:row wrap;
     justify-content:center;
 `;
-
-
 
 
 const RecommendedItem = styled.div`

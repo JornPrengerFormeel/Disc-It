@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-
 
 
 import Search from './search';
@@ -8,65 +7,58 @@ import Recommended from './recommended';
 import Added from './added';
 
 
-
 class Discover extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searched : [],
-            seeds : [],
-            added : []
-        }
-
-        
+            searched: [],
+            seeds: [],
+            added: [],
+        };
     }
-    
 
-   
+
     updateResults = (type, results) => {
-        //unique results
-        
+        // unique results
+
         this.setState({
-            [type] : results
-        })
+            [type]: results,
+        });
     }
-    
+
 
     selectItem = (type, item) => {
         const current = [...this.state[type]];
         current.push(item);
         this.setState({
-            [type]:current
+            [type]: current,
         });
     }
 
-   
-    
 
     render() {
-
         return (
             <Area>
-                <Search 
-                    updateResults = {this.updateResults}
-                    selectItem = {this.selectItem}
-                    items = {this.state.searched}
-                    seeds = {this.state.seeds}
+                <Search
+                  updateResults={this.updateResults}
+                  selectItem={this.selectItem}
+                  items={this.state.searched}
+                  seeds={this.state.seeds}
                 />
 
-                <Recommended 
-                    updateResults = {this.updateResults}
-                    selectItem = {this.selectItem}
-                    items = {this.state.seeds}
+                <Recommended
+                  updateResults={this.updateResults}
+                  selectItem={this.selectItem}
+                  items={this.state.seeds}
                 />
 
-                <Added 
-                    items ={this.state.added}
+                <Added
+                  items={this.state.added}
                 />
 
             </Area>
-        )
+        );
     }
 }
 
@@ -80,12 +72,6 @@ const Area = styled.div`
     justify-content:center;
     position:relative;
 `;
-
-
-
-
-
-
 
 
 export default Discover;
