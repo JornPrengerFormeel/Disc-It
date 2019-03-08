@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import {SpotifyApi} from '../../../api/spotify-api'
 
+import sound from '../../../img/mute-unmute.png';
 
 class Recommended extends Component {
 
@@ -25,6 +26,12 @@ class Recommended extends Component {
     
     async getRecommended() {
         const items = this.props.items;
+        console.log(items);
+        if (items.length === 0) {
+            this.setState({recommendations : []})
+            return;
+        }
+
         const start = items.length >= 5 ? items.length - 5 : 0;
         const seeds = items.slice(start);
         const results = await SpotifyApi.recommendations(seeds);
@@ -34,33 +41,22 @@ class Recommended extends Component {
         }
     }
 
+    addSong = (item) => {
+        this.props.selectItem('added', item);
+    }
 
-    selectSong = (index) => {
-        //if first click play demo song
-        //and show plus button
-
-        //if second click add to added list
-
-        const recommendations = [...this.state.recommendations];
-        const item = {...recommendations[index]};
-        if (item.touched) {
-            return this.props.selectItem('added', item);
-        }
-        item.touched = true;
-        
+    playDemo = (item) => {
         const audio = document.getElementById('audio');
         audio.pause();
+        audio.src = item.preview_url;
+        audio.play();
+    }
+    
 
-        if (item.preview_url) {
-            audio.src = item.preview_url;
-            audio.play();
-        }
-        recommendations[index] = item;
-
-        this.setState({
-            ...this.state,
-            recommendations : recommendations
-        })
+    removeSeed =(index) => {
+        const seeds = [...this.props.items];
+        seeds.splice(index,1);
+        this.props.updateResults('seeds', seeds);
     }
 
     render() {
@@ -76,7 +72,7 @@ class Recommended extends Component {
                 <Results>
                     {
                         
-                        last5.map((data)=>{
+                        last5.map((data, index)=>{
                             const item = data.item;
                             const img = item.images.length < 2 ? null : item.images[1].url;
                             return (
@@ -88,7 +84,7 @@ class Recommended extends Component {
                                     </ImageOuter>
                                     <Name>{item.name}</Name>
 
-                                    
+                                    <Remove onClick={()=>{this.removeSeed(index)}}>X</Remove>
                                 </Item>
                             )
                         })
@@ -110,7 +106,6 @@ class Recommended extends Component {
                             return (
                                 <RecommendedItem 
                                     key={item.id}
-                                    onClick={()=>{this.selectSong(index)}}
                                     touched = {item.touched}
                                 >
                                     <SongName>{item.name}</SongName>
@@ -118,9 +113,13 @@ class Recommended extends Component {
                                     {artist && <Artist>{artist}</Artist>}
 
                                     {
-                                        item.touched &&
-                                        <Plus>+</Plus>
+                                        item.preview_url &&
+                                        <Demo
+                                            onClick={()=>{this.playDemo(item)}}
+                                        />
                                     }
+                                    <Plus onClick={()=>{this.addSong(item)}}>+</Plus>
+                                    
                                 </RecommendedItem>
                             )
                         })
@@ -136,7 +135,7 @@ const Audio = styled.audio`display:none;`;
 
 const Area = styled.div`
     width:1000px;
-    margin:0 50px;
+    margin:0 12px;
     min-height:300px;
     background:#eee;
     display:flex;
@@ -150,27 +149,6 @@ const Title = styled.h1`
     border-bottom:dashed 6px black;
 `
 
-const Item = styled.div`
-    width:150px;
-    height:150px;
-    margin:10px;  
-    position:relative;  
-
-    
-`;
-
-const ImageOuter = styled.div`
-    width:100%;
-    height:100%;
-    object-fit:cover;
-`;
-
-const Image = styled.img`
-    display:block;
-    width:100%;
-    height:100%;
-`;
-
 const Name = styled.div`
     position:absolute;
     bottom:0;
@@ -179,6 +157,36 @@ const Name = styled.div`
     color:black;
     background:white;
 `;
+const Image = styled.img`
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:all 0.3s ease-in;
+`;
+const Item = styled.div`
+    width:calc(20% - 20px);
+    height:130px;
+    margin:10px;  
+    position:relative;  
+
+    &:hover ${Name} {
+        color:white;
+        background:#2f2f2f;
+    }
+
+    &:hover ${Image} {
+        transform:scale(1.1);
+    }
+`;
+
+const ImageOuter = styled.div`
+    width:100%;
+    height:100%;
+    overflow:hidden;
+`;
+
 
 
 
@@ -189,7 +197,7 @@ const Name = styled.div`
 const Results = styled.div`
     display:flex;
     flex-flow:row wrap;
-    justify-content:flex-start;
+    justify-content:center;
 `;
 
 
@@ -201,7 +209,8 @@ const RecommendedItem = styled.div`
     position:relative;  
     background:white;
     border:solid 1px black;
-
+    cursor:pointer
+    font-size:14px;
     ${props => props.touched && 'background:#2f2f2f; color:white;'}
 
     &:hover {
@@ -217,6 +226,7 @@ const SongName = styled.div`
 `;
 
 const Artist = styled.div`
+    border-top: dashed 3px black;
     width:100%;
     padding:8px;
     color:inherit;
@@ -224,8 +234,8 @@ const Artist = styled.div`
 
 const Plus = styled.div`
     position:absolute;
-    top:10px;
-    right:10px;
+    top:-10px;
+    right:-10px;
     width:20px;
     height:20px;
     background:green;
@@ -233,6 +243,21 @@ const Plus = styled.div`
     color:white;
     text-align:center;
     line-height:20px;
+`;
+
+const Demo = styled(Plus)`
+    right:auto;
+    left:-10px;
+    background:black;
+    border:solid 1px black;
+    background-image:url(${sound});
+    background-repeat:no-repeat;
+    background-size:100%;
+    background-position-y: 100%;
+`;
+
+const Remove = styled(Plus)`
+    background:red;
 `;
 
 export default Recommended;
