@@ -13,7 +13,6 @@ class BaseRequest {
                 headers: headers
             });
             const responseType = data.headers.get('content-type');
-            console.log(responseType);
             if (responseType.includes('application/json')) {
                 const json = await data.json();
                 return json;
@@ -22,6 +21,7 @@ class BaseRequest {
             return data.text();
             
         } catch (err) {
+            console.log(err);
             return { err };
         }
        

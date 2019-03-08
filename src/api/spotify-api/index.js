@@ -42,7 +42,6 @@ class SpotifyApi {
                 tracks.push(r.item.id);
             }
         }
-       console.log(artists);
 
         artists = artists.join(',');
         tracks = tracks.join(',');
