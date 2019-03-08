@@ -43,7 +43,7 @@ const Title = styled.h1`
 `
 const Area = styled.div`
     width:500px;
-    margin:0 50px;
+    margin:0 12px;
     min-height:300px;
     background:#eee;
     display:flex;

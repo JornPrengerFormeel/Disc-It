@@ -25,6 +25,8 @@ class Discover extends Component {
 
    
     updateResults = (type, results) => {
+        //unique results
+        
         this.setState({
             [type] : results
         })
@@ -39,6 +41,7 @@ class Discover extends Component {
         });
     }
 
+   
     
 
     render() {
@@ -49,6 +52,7 @@ class Discover extends Component {
                     updateResults = {this.updateResults}
                     selectItem = {this.selectItem}
                     items = {this.state.searched}
+                    seeds = {this.state.seeds}
                 />
 
                 <Recommended 
@@ -71,7 +75,7 @@ const Area = styled.div`
     max-width:100%;
     margin:auto;
     min-height:300px;
-    
+    padding:150px 0;
     display:flex;
     justify-content:center;
     position:relative;
