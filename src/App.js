@@ -36,21 +36,20 @@ class App extends Component {
 
     render() {
         return (
-
-            <Container>
-                <BackgroundContainer>
-                    <BackgroundImage 
-                        onMouseMove = {this.mouseMove}
-                        src={backgroundImage}
-                        style = {this.getBackgroundStyle()}
-                    />
-                </BackgroundContainer>
-    
-            
+            <React.Fragment>
+                <Container>
+                    <BackgroundContainer>
+                        <BackgroundImage 
+                            onMouseMove = {this.mouseMove}
+                            src={backgroundImage}
+                            style = {this.getBackgroundStyle()}
+                        />
+                    </BackgroundContainer>
+                </Container>
+                
                 <Router props={this.props} />
-    
-    
-            </Container>
+
+            </React.Fragment>
     
     
         );
