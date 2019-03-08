@@ -13,6 +13,7 @@ class Search extends Component {
         this.search = this.search.bind(this);
     }
    
+    
 
     handleChange = (e) => {
         this.setState({[e.target.name] : e.target.value})
@@ -29,17 +30,30 @@ class Search extends Component {
         }
     }
 
+
+    checkUnique = (data) => {
+        //check id is unique
+        const seeds = this.props.seeds;
+        for (let i=0;i<seeds.length;i++) {
+            if (seeds[i].item.id === data.item.id) return false;
+        }
+        return true;
+    }
+
     addItem =(item) => {
         const data = {
             type : 'artist',
             item : item
         }
-        this.props.selectItem('seeds', data);
+        if (this.checkUnique(data)) {
+            this.props.selectItem('seeds', data);
+        }
     }
 
     render() {
         return (
             <Area>
+                <Title>Search Artists</Title>
                 <Input 
                     value={this.state.query}
                     onChange={this.handleChange}
@@ -74,46 +88,47 @@ class Search extends Component {
 
 const Area = styled.div`
     width:500px;
-    margin:0 50px;
+    margin:0 12px;
     min-height:300px;
     background:#eee;
     display:flex;
     flex-direction:column;
 `;
 
+
+const Title = styled.h1`
+   
+    padding:25px;
+    border-bottom:dashed 6px black;
+`;
+
 const Input = styled.input`
-    width:100%;
+    width:calc(100% - 30px);
+    margin:10px auto;
     font-size:20px;
+    padding:5px;
 `;
 
 const Go = styled.button`
     padding:10px;
-    background:lightgreen;
+    background:white;
+    border:solid 1px black;
+    width:250px;
+    cursor:pointer;
+    max-width:100%;
+    min-width:50%;
+    margin:10px auto;
+
+    &:hover {
+        background:#2f2f2f;
+        color:white;
+    }
 `;
 
 const Results = styled.div`
     display:flex;
     flex-flow:row wrap;
-    justify-content:flex-start;
-`;
-
-const Item = styled.div`
-    width:150px;
-    height:150px;
-    margin:10px;  
-    position:relative;  
-`;
-
-const ImageOuter = styled.div`
-    width:100%;
-    height:100%;
-    object-fit:cover;
-`;
-
-const Image = styled.img`
-    display:block;
-    width:100%;
-    height:100%;
+    justify-content:center;
 `;
 
 const Name = styled.div`
@@ -124,5 +139,38 @@ const Name = styled.div`
     color:black;
     background:white;
 `;
+const Image = styled.img`
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:all 0.3s ease-in;
+`;
+const Item = styled.div`
+    width:calc(33% - 20px);
+    height:150px;
+    margin:10px;  
+    position:relative;  
+
+    &:hover ${Name} {
+        color:white;
+        background:#2f2f2f;
+    }
+
+    &:hover ${Image} {
+        transform:scale(1.1);
+    }
+`;
+
+const ImageOuter = styled.div`
+    width:100%;
+    height:100%;
+    overflow:hidden;
+`;
+
+
+
+
 
 export default Search;
