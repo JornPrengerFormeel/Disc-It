@@ -16,7 +16,7 @@ class LoginCallbackPage extends React.Component {
   async getTokens(code) {
       const data = await DiscItApi.getTokens(code);
       /* handle error here */
-      
+
       if (data.access_token) {
           this.setLocalSession(data);
       }
@@ -26,6 +26,8 @@ class LoginCallbackPage extends React.Component {
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
       /* later consider adding epoch time of expiry so we can refresh before making a request */
+      const expiry = new Date().getTime() + data.expires_in * 1000;
+      localStorage.setItem('expiry_epoch', expiry);
       window.location = '/discover';
   }
 

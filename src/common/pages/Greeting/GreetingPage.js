@@ -1,65 +1,50 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+
 // TODO: Add font used in UI desgin
 import LinkSpotify from './LinkSpotify';
-import backgroundImage from '../../../img/album.jpg';
+
 
 class GreetingPage extends React.Component {
-  test = () => { console.log('hi'); };
+  
+    
 
-  render() {
+    componentDidMount() {
+        //check current localstorage and see if tokens have expired, if not redirect to discover
+        if (localStorage.getItem('access_token')) {
+            const expiry = localStorage.getItem('expiry_epoch');
+            if (expiry && expiry > new Date().getTime()) {
+                this.props.history.push('/discover')
+            }
+        }
+    }
+
+
+    
+
+
+    render() {
       return (
-          <Container>
-              <BackgroundContainer>
-                  <BackgroundImage src={backgroundImage} />
-              </BackgroundContainer>
-              <CenterDisc>
-                  <ContentContainer>
-                      <p>
-                          <b>Spot It</b>
-                          {' '}
-              creates playlists based on artists you already love.
+            <CenterDisc>
+                <ContentContainer>
+                    <p>
+                        <b>Spot It</b>
+                        {' '}
+            creates playlists based on artists you already love.
 
 
-                      </p>
-                      <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
-                      <LinkSpotify />
-                  </ContentContainer>
+                    </p>
+                    <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+                    <LinkSpotify />
+                </ContentContainer>
 
-              </CenterDisc>
-          </Container>
-      );
-  }
+            </CenterDisc>
+        );
+    } 
 }
 
-const Container = styled.div`
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  width: 100% !important;
-  max-width: 100% !important;
-`;
 
-const BackgroundContainer = styled.div`
-  height: 100vh;
-  overflow: hidden;
-`;
-
-
-const slide = keyframes`
-  0%{
-    transform: translate3d(0, 0, 0);
-  }
-  100%{
-    transform: translate3d(0, -300vh, 0);
-  }
-`;
-const BackgroundImage = styled.div`
-  background: url(${props => props.src}) repeat-y; 
-  height: 300vh;
-  background-size: contain;
-  animation: ${slide} 120s linear infinite;
-`;
 
 const CenterDisc = styled.div`
   background: white;
