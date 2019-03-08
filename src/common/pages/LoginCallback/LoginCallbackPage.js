@@ -3,12 +3,16 @@ import React from 'react';
 import { DiscItApi } from '../../../api/discit-api/DiscItApi';
 
 class LoginCallbackPage extends React.Component {
- 
+
 
   componentDidMount() {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get('code');
+      console.log("hello");
 
+      const params = new URLSearchParams(window.location.search),
+            code = params.get('code');
+
+      console.log(params);
+      console.log(code);
 
       this.getTokens(code);
   }
@@ -19,6 +23,15 @@ class LoginCallbackPage extends React.Component {
 
       if (data.access_token) {
           this.setLocalSession(data);
+      }
+
+      else if ( localStorage.getItem("access_token") && localStorage.getItem("refresh_token") ) {
+        window.location = '/discover';
+      }
+
+      else {
+        // TODO: Display error somewhere
+        window.location = '/';
       }
   }
 

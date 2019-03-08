@@ -64,7 +64,7 @@ class Discover extends Component {
                 <Added 
                     items ={this.state.added}
                 />
-            
+
             </Area>
         )
     }
