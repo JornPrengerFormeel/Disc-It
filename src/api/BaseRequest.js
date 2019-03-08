@@ -1,40 +1,42 @@
 
 class BaseRequest {
-    static async sendGetRequest(urlString, headers=null) {
+    static async sendGetRequest(urlString, headers = null) {
         if (headers === null) {
             headers = {
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
-            }
+            };
         }
         try {
             const data = await fetch(urlString, {
                 method: 'get',
-                headers: headers
+                headers,
             });
             const responseType = data.headers.get('content-type');
-            console.log(responseType);
             if (responseType.includes('application/json')) {
                 const json = await data.json();
                 return json;
             }
 
             return data.text();
-            
         } catch (err) {
+            console.log(err);
             return { err };
         }
-       
     }
 
 
-    static async sendPostRequest(urlString, body) {
+    static async sendPostRequest(urlString, body, headers=null) {
+        if (headers === null) {
+            headers =  {
+                'Content-Type': 'application/json',
+            }
+        }
+        
         try {
             const data = await fetch(urlString, {
                 method: 'post',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: headers,
                 body: JSON.stringify(body),
             });
 
