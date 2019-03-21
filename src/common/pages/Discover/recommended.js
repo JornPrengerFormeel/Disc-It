@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { SpotifyApi } from '../../../api/spotify-api';
+import { Title } from '../../components/Discover';
 
 import sound from '../../../img/mute-unmute.png';
 
@@ -140,13 +141,6 @@ const Area = styled.div`
     background:#eee;
     display:flex;
     flex-direction:column;
-`;
-
-
-const Title = styled.h1`
-   
-    padding:25px;
-    border-bottom:dashed 6px black;
 `;
 
 const Name = styled.div`

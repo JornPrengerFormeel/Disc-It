@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { SpotifyApi } from '../../../api/spotify-api';
+import { Title } from '../../components/Discover';
 
 class Search extends Component {
     constructor(props) {
@@ -52,7 +53,7 @@ class Search extends Component {
     render() {
         return (
             <Area>
-                <Title>Search Artists</Title>
+                <Title>Find</Title>
                 <Input
                   value={this.state.query}
                   onChange={this.handleChange}
@@ -92,13 +93,6 @@ const Area = styled.div`
     background:#eee;
     display:flex;
     flex-direction:column;
-`;
-
-
-const Title = styled.h1`
-   
-    padding:25px;
-    border-bottom:dashed 6px black;
 `;
 
 const Input = styled.input`

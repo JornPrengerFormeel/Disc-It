@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import Router from './Router';
 
-import backgroundImage from './img/album.jpg';
+import NavFooter from './common/components/Navigation/NavFooter.js';
+//import backgroundImage from './img/album.jpg';
 
 
 class App extends Component {
@@ -37,18 +38,20 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <Container>
+                {/*<Container>
                     <BackgroundContainer>
                         <BackgroundImage
-                          onMouseMove={this.mouseMove}
+                          //onMouseMove={this.mouseMove}
                           src={backgroundImage}
                           style={this.getBackgroundStyle()}
                         />
                     </BackgroundContainer>
-                </Container>
+                </Container>*/}
+                <Main>
+                    <Router props={this.props} />
 
-                <Router props={this.props} />
-
+                    <NavFooter />
+                </Main>
             </React.Fragment>
 
 
@@ -56,13 +59,12 @@ class App extends Component {
     }
 }
 
-
 const Container = styled.div`
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  position:fixed;
+  //height: 100vh;
+  //width: 100%;
+  //margin: 0;
+  //padding: 0;  
+  //position:fixed;
 `;
 
 const BackgroundContainer = styled.div`
@@ -74,12 +76,27 @@ const BackgroundContainer = styled.div`
 
 
 const BackgroundImage = styled.div`
-  background: url(${props => props.src}) repeat-y;
+  background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${props => props.src}) repeat-y;
   height:150vh;
   width: 100%;
   background-size: cover;
   background-repeat:repeat;
 `;
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  *::selection {
+      color: #1ed760;
+      background: #212121;
+  }
+`
 
 
 export default App;

@@ -63,14 +63,17 @@ class Discover extends Component {
 }
 
 const Area = styled.div`
-    width:1890px;
-    max-width:100%;
-    margin:auto;
-    min-height:300px;
-    padding:150px 0;
-    display:flex;
-    justify-content:center;
     position:relative;
+    height: 100vh;
+    width:100%;
+    
+    display:flex;
+    align-items: center;
+    justify-content:center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 

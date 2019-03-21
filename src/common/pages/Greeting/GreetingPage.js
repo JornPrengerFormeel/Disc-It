@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
-
-// TODO: Add font used in UI desgin
 import LinkSpotify from './LinkSpotify';
 
+import bg from '../../../img/bg-c.jpg';
 
 class GreetingPage extends React.Component {
     componentDidMount() {
@@ -17,51 +15,78 @@ class GreetingPage extends React.Component {
         }
     }
 
-
     render() {
         return (
-            <CenterDisc>
+            <Wrapper>
                 <ContentContainer>
-                    <p>
-                        <b>Spot It</b>
-                        {' '}
-            creates playlists based on artists you already love.
-
-
-                    </p>
-                    <p>Simple link your Spotify, customize your selection, and discover new artists!</p>
+                    <h1><span className="logo">Disc It</span> creates playlists for you based on artists you already love.</h1>
+                    <h1>Easy as 1 2 3: Link your Spotify, customize your selection, and discover new artists!</h1>
                     <LinkSpotify />
                 </ContentContainer>
-
-            </CenterDisc>
+            </Wrapper>
         );
     }
 }
 
-
-const CenterDisc = styled.div`
-  background: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  border-radius: 200px;
-  box-sizing: border-box;
-
-`;
+const Wrapper = styled.div`
+  background: linear-gradient(to bottom right, #1ed760 66%, #1bc156), url(${bg});
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  flex: 1 1 auto;
+    @media (max-width: 768px) {
+        background: linear-gradient(#1ed760, #1bc156);
+     }
+`
 
 const ContentContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-  p {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    padding: 10vw 0 0 8vh;
+    transition: padding .25s ease-in-out;
+
+    h1 {
+        font-family: Helvetica,Arial,sans-serif;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 1.5;
+        color: #212121;
+        transition: font-size .25s ease-in-out;
+    }
+
+    span.logo {
+        border: 2px solid #212121;
+        border-right: none;
+        border-bottom: none;
+        padding-left: 8px;
+    }
+
+    // 4K
+    @media (min-width: 2560px) {
+        h1 {
+            font-size: 84px;
+        }
+     }
+
+    // Tablet
+    @media (max-width: 1023px) {
+        h1 {
+            font-size: 32px;
+        }
+     }
+     
+    // Mobile
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 48px 48px 0 48px;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            font-size: 32px;
+        }
+     }
 `;
 
 

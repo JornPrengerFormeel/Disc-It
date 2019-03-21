@@ -10,20 +10,27 @@ const LinkSpotify = props => (
 );
 
 const LinkSpotifyBtn = styled.button`
-  width: 100%;
+  margin: 1em 0;
+  height: 56px;
+  width: 300px;
+
+  background: #212121;
+  color: #EEE;
+
   border: none;
-  height: 40px;
-  background: black;
-  color: white;
-  border-radius: 15px;
-  margin-top: 10px;
-  font-size: 80%;
+  border-radius: 9999px;
+  
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  
+  cursor:pointer;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
   transition: 0.25s;
-  cursor:pointer;
 
   &:hover {
-    background: #1ed760;
+    color: #1bc156;
   }
 `;
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { SpotifyApi } from '../../../api/spotify-api';
+import { Title } from '../../components/Discover';
 
 class Added extends Component {
     constructor(props) {
@@ -81,12 +82,6 @@ class Added extends Component {
     }
 }
 
-
-const Title = styled.h1`
-   
-    padding:25px;
-    border-bottom:dashed 6px black;
-`;
 const Area = styled.div`
     width:500px;
     margin:0 12px;
