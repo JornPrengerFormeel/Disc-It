@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import LinkSpotify from './LinkSpotify';
 
-import bg from '../../../img/bg-c.jpg';
+import bg from '../../../img/bg-c-transparent-test.png';
+import tile from '../../../img/tile.png';
 
 class GreetingPage extends React.Component {
     componentDidMount() {
@@ -19,8 +20,18 @@ class GreetingPage extends React.Component {
         return (
             <Wrapper>
                 <ContentContainer>
-                    <h1><span className="logo">Disc It</span> creates playlists for you based on artists you already love.</h1>
-                    <h1>Easy as 1 2 3: Link your Spotify, customize your selection, and discover new artists!</h1>
+
+                    <h1>
+                      <span className="logo">Disc-It</span>
+                      &nbsp; creates playlists based on artists you love.
+                    </h1>
+
+                    <h3 className="secondary_text">
+                      <strong>Link</strong> your Spotify, &nbsp;
+                      <strong>Customize</strong> your selection, &nbsp;
+                      <strong>Discover</strong> new artists!
+                    </h3>
+
                     <LinkSpotify />
                 </ContentContainer>
             </Wrapper>
@@ -29,14 +40,15 @@ class GreetingPage extends React.Component {
 }
 
 const Wrapper = styled.div`
-  background: linear-gradient(to bottom right, #1ed760 66%, #1bc156), url(${bg});
-  background-blend-mode: darken;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background: url(${bg}), linear-gradient(to right, #1ed760 50%, #159141), url(${tile});
+  background-blend-mode: darken, darken, darken;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: contain, contain, cover;
   background-position: right;
+
   flex: 1 1 auto;
     @media (max-width: 768px) {
-        background: linear-gradient(#1ed760, #1bc156);
+        background: linear-gradient(#1ed760, #159141);
      }
 `
 
@@ -47,20 +59,30 @@ const ContentContainer = styled.div`
     padding: 10vw 0 0 8vh;
     transition: padding .25s ease-in-out;
 
+
+
     h1 {
-        font-family: Helvetica,Arial,sans-serif;
-        font-size: 36px;
+        font-family: 'Raleway', Helvetica,Arial,sans-serif;
+        text-shadow: 1px 3px 2px rgba(0,0,0,0.2);
+        font-size: 38px;
         font-weight: 900;
         line-height: 1.5;
         color: #212121;
         transition: font-size .25s ease-in-out;
     }
 
-    span.logo {
-        border: 2px solid #212121;
-        border-right: none;
-        border-bottom: none;
-        padding-left: 8px;
+    h3 {
+      font-family: 'Raleway', Helvetica, Arial, sans-serif;
+      text-shadow: 1px 3px 2px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-size: 60px;
+      font-family: 'Archivo Black', Helvetica, Arial, sans-serif;
+    }
+
+    .secondary_text {
+      margin: 15px 0;
     }
 
     // 4K
@@ -76,7 +98,7 @@ const ContentContainer = styled.div`
             font-size: 32px;
         }
      }
-     
+
     // Mobile
     @media (max-width: 768px) {
         width: 100%;

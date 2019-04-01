@@ -10,21 +10,23 @@ const NavFooter = props => (
 );
 
 const NavFooterDiv = styled.div`
-    flex: 0 1 64px;
+    flex: 0 1 50px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 1rem;
+    padding: 0 .1rem;
     width: 100%;
 
-    font-size: 16px;
+    background-color: #212121;
+
+    font-size: 14px;
     font-weight: 600;
 
     a {
-        color: #1ed760;
+        color: #717171;
         text-decoration: none;
         &:hover {
-            color: #212121;
+            color: #868686;
         }
     }
 

@@ -4,8 +4,7 @@ import { GreetingPagePresenter } from './GreetingPagePresenter';
 
 const LinkSpotify = props => (
     <LinkSpotifyBtn onClick={GreetingPagePresenter.linkButtonClicked}>
-        Link Spotify
-        {/* TODO */}
+        Get Started
     </LinkSpotifyBtn>
 );
 
@@ -19,12 +18,13 @@ const LinkSpotifyBtn = styled.button`
 
   border: none;
   border-radius: 9999px;
-  
+
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  
+
   cursor:pointer;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
   transition: 0.25s;
