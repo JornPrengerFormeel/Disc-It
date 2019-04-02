@@ -48,7 +48,11 @@ const Wrapper = styled.div`
 
   flex: 1 1 auto;
     @media (max-width: 768px) {
-        background: linear-gradient(#1ed760, #159141);
+      background: linear-gradient(to right, #1ed760 50%, #159141), url(${tile});
+      background-blend-mode: darken, darken;
+      background-repeat: no-repeat, no-repeat;
+      background-size: contain, cover;
+      background-position: right;
      }
 `
 

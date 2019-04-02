@@ -1,5 +1,6 @@
 
 class BaseRequest {
+  
     static async sendGetRequest(urlString, headers = null) {
         if (headers === null) {
             headers = {
@@ -32,7 +33,7 @@ class BaseRequest {
                 'Content-Type': 'application/json',
             }
         }
-        
+
         try {
             const data = await fetch(urlString, {
                 method: 'post',

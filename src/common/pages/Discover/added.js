@@ -20,17 +20,19 @@ class Added extends Component {
 
     async addToPlaylist() {
         const playlistName = this.state.playlist.trim();
-        
-        
+
+
         if (playlistName.length < 1) return;
         //add tracks
         const user = await SpotifyApi.getUser();
+
         if (user.error) {
             //error
             return console.warn(user.error);
         }
+
         const playlist = await SpotifyApi.addPlaylist(user.id, playlistName);
-       
+
         if (playlist.error) {
             return console.warn(user.error);
         }
@@ -38,7 +40,7 @@ class Added extends Component {
         const tracks = this.props.items.map(x => x.uri);
         //TO DO split into chunks of less than 100, (more than 100 tracks cannot be added at once)
         const result = await SpotifyApi.addTracks(playlist.id, tracks);
-        
+
         if (result.snapshot_id) {
             //success
             window.location.href = playlist.external_urls.spotify;
@@ -101,8 +103,8 @@ const Results = styled.div`
 
 const RecommendedItem = styled.div`
     width:150px;
-    margin:10px;  
-    position:relative;  
+    margin:10px;
+    position:relative;
     background:white;
     border:solid 1px black;
 `;

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-
 import Search from './search';
 import Recommended from './recommended';
 import Added from './added';
+
+import tile from '../../../img/tile.png';
 
 
 class Discover extends Component {
@@ -40,22 +41,14 @@ class Discover extends Component {
     render() {
         return (
             <Area>
+
                 <Search
                   updateResults={this.updateResults}
                   selectItem={this.selectItem}
                   items={this.state.searched}
-                  seeds={this.state.seeds}
-                />
+                  seeds={this.state.seeds} />
 
-                <Recommended
-                  updateResults={this.updateResults}
-                  selectItem={this.selectItem}
-                  items={this.state.seeds}
-                />
-
-                <Added
-                  items={this.state.added}
-                />
+                
 
             </Area>
         );
@@ -66,10 +59,16 @@ const Area = styled.div`
     position:relative;
     height: 100vh;
     width:100%;
-    
+
     display:flex;
     align-items: center;
     justify-content:center;
+
+    background: linear-gradient(to right, #1ed760 50%, #159141), url(${tile});
+    background-blend-mode: darken, darken;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, cover;
+    background-position: right;
 
     @media (max-width: 768px) {
         flex-direction: column;
