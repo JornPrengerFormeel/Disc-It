@@ -185,7 +185,8 @@ const ResultsContainer = styled.div`
     background-color: #b7d4c2;
     border: solid 2px #012d11;
     border-radius: 4px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     `;
 
 const ResultsRow = styled.div`
