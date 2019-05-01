@@ -49,7 +49,7 @@ class Search extends Component {
             seeds = [];
 
       this.discover_long_term_artists(header).then(result => {
-
+        this.setState({ mode: 0, seeds: [], tracks: [] });
         if (result.error) {
           if (result.error.message === "The access token expired") {
             DiscItApi.refreshTokens().then((response) => {
@@ -84,7 +84,7 @@ class Search extends Component {
       const tracks = this.state.tracks.map(x => x.uri);
       const result = await SpotifyApi.addTracks(playlist.id, tracks);
 
-      this.setState({ mode: 0, seeds: [], tracks: [] });
+      this.discover();
     }
 
     render() {
