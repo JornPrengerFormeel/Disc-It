@@ -13,4 +13,11 @@ export class DiscItApi {
         };
         return BaseRequest.sendPostRequest(`https://samalot.dev/discit/access/`, body);
     }
+
+    static async refreshTokens() {
+        const body = {
+            token: localStorage.getItem('refresh_token')
+        };
+        return BaseRequest.sendPostRequest(`https://samalot.dev/discit/refresh/`, body);
+    }
 }

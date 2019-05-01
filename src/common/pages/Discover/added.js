@@ -26,10 +26,7 @@ class Added extends Component {
         //add tracks
         const user = await SpotifyApi.getUser();
 
-        if (user.error) {
-            //error
-            return console.warn(user.error);
-        }
+        if (user.error) { return console.warn(user.error); }
 
         const playlist = await SpotifyApi.addPlaylist(user.id, playlistName);
 
